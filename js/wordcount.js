@@ -2,7 +2,7 @@
 
 var stopwords = nlpWords.concat(springbreakWords, symbolWords);
 
-var analyze = function (content) {
+var count = function (content, numOfWords) {
     var result = [],
         hash = {};
 
@@ -24,5 +24,5 @@ var analyze = function (content) {
       }
     });
 
-    return result.sort(function (a, b) { return b.size - a.size;});  // in desc order
-}
+    return result.sort(function (a, b) { return b.size - a.size;}).slice(0,numOfWords);  // in desc order
+};
